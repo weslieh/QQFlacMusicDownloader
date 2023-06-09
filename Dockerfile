@@ -4,8 +4,8 @@ WORKDIR /workspace
 
 ADD ./ /workspace
 
-RUN pip3 install --no-cache-dir --upgrade pip  -i https://mirrors.bfsu.edu.cn/pypi/web/simple && \
-        pip3 install --no-cache-dir -r /workspace/requirements.txt -i https://mirrors.bfsu.edu.cn/pypi/web/simple
+RUN pip3 install --no-cache-dir --upgrade pip  && \
+        pip3 install --no-cache-dir -r /workspace/requirements.txt
 
 EXPOSE 8899
 
