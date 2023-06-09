@@ -1,13 +1,33 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="content">
-    <h1>`YuanShen` Homo Lovly :)</h1>
-    <br/>
-    <h2>暂时没想好怎么写</h2>
-  </div>
-</template>
-
+            <div>
+                <p v-for="fileName in fileList">{{fileName}}</p>
+            </div>
+        </template>
+        
+        <script>
+            import Vue from 'vue';
+            import fs from 'fs';
+            
+            export default {
+                data() {
+                    return {
+                        fileList: []
+                    }
+                },
+                created() {
+                    const self = this;
+                    fs.readdir('/workspace/music', function (err, files) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            self.fileList = files;
+                        }
+                    });
+                }
+            }
+        </script>
 <style lang="scss" scoped>
 .content {
   height: 100%;
